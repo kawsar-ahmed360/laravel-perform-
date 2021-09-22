@@ -1,0 +1,38 @@
+1/ laravel debugbar install
+
+2/ Modal ORM Query
+         public function category(){
+            return $this->belongsTo(category::class,'cat_id');
+          }
+
+3/ Controller Data pass
+       
+        public function index(){
+            $data['post'] = Post::with('category')->get();
+            reutrn view('backend.post.index',$data);
+         }
+
+
+4/ HasMany Relatoin
+    mane ekta category under e onek gula post
+
+     -------------Modal--------------------
+      public function post(){
+          return $this->hasMany(post::ckass,'id','cat_id');
+      }
+
+     -------------------Controller---------------
+
+        public function index(){
+            $data['category'] = Category::with('post')->get();
+            reutrn view('backend.post.index',$data);
+         }
+
+
+          -------------------View Post---------------
+
+    @foreach($category->post as $post)
+
+   @endforeach
+
+         
